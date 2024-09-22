@@ -1,6 +1,3 @@
-
-
-
 defaults:
   - _self_
   - dataset: cifar.yaml
@@ -10,14 +7,13 @@ defaults:
   - paths: default.yaml
   - hydra: default.yaml
   - logger: tensorboard.yaml
-  - clearml: default.yaml 
+  - clearml: default.yaml
 
-  - experiments: base_expe.yaml
+  - experiments: debug.yaml
 
 task_name: Random_name
 
 seed: 42
-
 
 # set False to skip model training
 train: True

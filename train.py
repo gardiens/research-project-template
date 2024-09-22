@@ -1,4 +1,3 @@
-
 from typing import TYPE_CHECKING, Optional, Tuple
 
 import hydra
@@ -19,17 +18,12 @@ import random
 
 import numpy as np
 
-from src.trainer import trainer
-
 if TYPE_CHECKING:
     from src.dataset.cifar import BaseDataModule
-    from src.trainer import trainer
-
-
+    from src.trainer import Trainer
 
 
 def set_seed(seed):
-
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -37,7 +31,8 @@ def set_seed(seed):
     torch.backends.cudnn.benchmark = False
     torch.cuda.manual_seed_all(seed)
 
-def train(cfg: DictConfig, task: Task) -> Tuple[dict, dict]:
+
+def train(cfg: DictConfig, task: Task) -> None:
     """Trains the model. Can additionally evaluate on a testset, using best weights obtained during
     training.
 
@@ -60,13 +55,11 @@ def train(cfg: DictConfig, task: Task) -> Tuple[dict, dict]:
     )
     set_seed(cfg.seed)
     base_datamodule: "BaseDataModule" = hydra.utils.instantiate(cfg.dataset)
-    train_loader, val_loader, test_loader = (
-        base_datamodule.get_dataset(transform_train)
-    )
+    train_loader, val_loader, test_loader = base_datamodule.get_dataset(transform_train)
     criterion = instantiator(
         cfg.loss
     )  # should be either the CrossEntropyLoss; or the HierarchicalLoss or HierarchicalLossConvex
-    
+
     net = instantiator(cfg.model).to(device)
 
     optimizer = optim.Adam(net.parameters(), lr=cfg.trainer.learning_rate)
@@ -78,17 +71,16 @@ def train(cfg: DictConfig, task: Task) -> Tuple[dict, dict]:
             name_connect_cfg="whole train cfg",
             name_hyperparams_summary="summary train cfg",
         )
-        logger_clearml=task.get_logger()
+        logger_clearml = task.get_logger()
     else:
         clearml_setup = False
 
-    logger=instantiator(config=cfg.logger)
-    trainer: "trainer" = instantiator(
+    logger = instantiator(config=cfg.logger)
+    trainer: "Trainer" = instantiator(
         cfg.trainer,
         train_loader=train_loader,
         val_loader=val_loader,
         test_loader=test_loader,
-        
         net=net,
         logger=logger,
         device=device,
@@ -96,20 +88,17 @@ def train(cfg: DictConfig, task: Task) -> Tuple[dict, dict]:
     #! actual training step
     trainer.train(optimizer, criterion)
 
-    return 
-@hydra.main(version_base="1.2", config_path= "configs", config_name="train.yaml")
-def main(cfg: DictConfig) -> Optional[float]:
+
+@hydra.main(version_base="1.2", config_path="configs", config_name="train.yaml")
+def main(cfg: DictConfig) -> None:
     # fetch cleamrl, must be at the beginning or the logging will not be perfect
-    print(" who is clearml?",cfg.get("clearml"))
-    print("test",cfg.test)
+
     if cfg.get("clearml"):
         task: Task = hydra.utils.instantiate(cfg.clearml)
     else:
         task = None
     # actual computation
     return train(cfg, task=task)
-
-
 
 
 if __name__ == "__main__":

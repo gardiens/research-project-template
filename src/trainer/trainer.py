@@ -9,7 +9,7 @@ from tqdm import tqdm
 timestamp = datetime.now().strftime("%Y_%m_%d_%Hh%M")
 
 
-class trainer:
+class Trainer:
     def __init__(
         self,
         train_loader,
@@ -18,10 +18,10 @@ class trainer:
         net,
         logger,
         classes,
-        n_epochs,
+        n_epochs: int,
         device,
         log_dir_model: str,
-        bool_save_model:bool=True,
+        bool_save_model: bool = True,
         n_epoch_save: int = 1,
         **kwargs,
     ):
@@ -36,9 +36,9 @@ class trainer:
         self.log_dir_model = log_dir_model
         self.n_epoch_save = n_epoch_save
         self.model_checkpoints_dir = os.path.join(self.log_dir_model, "checkpoints")
-        self.bool_save_model=bool_save_model
+        self.bool_save_model = bool_save_model
         self.n_classes = len(self.classes)
- 
+
     def image_label_load(self, data):
         """Utility function for correctly loading data with CUDA."""
         images, labels = data
@@ -68,7 +68,7 @@ class trainer:
                 loss = criterion(outputs, labels)
                 loss.backward()
                 optimizer.step()
-           
+
                 running_loss += loss.item()
                 progress_bar.set_description(f"Epoch: {epoch} - Loss: {loss}")
             # log everything after an epoch.
@@ -77,10 +77,11 @@ class trainer:
             # save model if needs be
             if epoch % self.n_epoch_save == 0 or epoch == self.n_epochs:
                 if self.bool_save_model:
-                    self.save_model(epoch=epoch, optimizer=optimizer, criterion=criterion)
+                    self.save_model(
+                        epoch=epoch, optimizer=optimizer, criterion=criterion
+                    )
 
             self.evaluate_model(epoch)
-
 
         print("Finished Training")
 
@@ -97,7 +98,7 @@ class trainer:
                 for data in tqdm(loader, total=len(loader)):
                     images, labels = self.image_label_load(data)
                     outputs = self.net(images)
-                  
+
                     _, predicted = torch.max(outputs.data, 1)
                     predicted = predicted.to(self.device)
                     total += labels.size(0)
@@ -107,12 +108,11 @@ class trainer:
                             correct_pred[self.classes[label]] += 1
                         total_pred[self.classes[label]] += 1
 
-
-            print(
-                f"Accuracy of the network on the images: {100 * correct / total} %"
-            )
+            print(f"Accuracy of the network on the images: {100 * correct / total} %")
             accuracy = 100 * correct / total
-            self.logger.add_scalar(f"total accuracy/{phase}", accuracy, epoch) if self.logger else None 
+            self.logger.add_scalar(
+                f"total accuracy/{phase}", accuracy, epoch
+            ) if self.logger else None
 
             self.after_epoch_test_log(
                 epoch=epoch,
@@ -122,8 +122,7 @@ class trainer:
             )
         self.net.train()
 
-   
-    def save_model(self, epoch, optimizer, criterion):
+    def save_model(self, epoch: int, optimizer, criterion):
         if not os.path.exists(os.path.join(self.log_dir_model, "checkpoints")):
             os.makedirs(os.path.join(self.log_dir_model, "checkpoints"))
         path_save = os.path.join(
@@ -137,17 +136,16 @@ class trainer:
                 "model_state_dict": self.net.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
                 "criterion": criterion,
-  
             },
             path_save,
         )
 
-    def after_epoch_train_log(self, running_loss, epoch, correct_pred, total_pred):
+    def after_epoch_train_log(self, running_loss, epoch: int, correct_pred, total_pred):
         self.logger.add_scalar(
             "loss/training_loss",
             running_loss / len(self.train_loader),
             epoch,
-        ) if self.logger else None 
+        ) if self.logger else None
         accuracies = {}
         for classname, correct_count in correct_pred.items():
             if total_pred[classname] == 0:
@@ -155,15 +153,17 @@ class trainer:
             accuracy = 100 * float(correct_count) / total_pred[classname]
             accuracies[classname] = accuracy
         # log accuracy per class on ONE graph
-        self.logger.add_scalars(f"class_accuracy/train", accuracies, epoch)  if self.logger else None 
+        self.logger.add_scalars(
+            f"class_accuracy/train", accuracies, epoch
+        ) if self.logger else None
         # log the accuracy per class
         for classname, accuracy_res in accuracies.items():
             self.logger.add_scalar(
                 f"class_accuracy/train/{classname}", accuracy_res, epoch
-            ) if self.logger else None 
+            ) if self.logger else None
 
     def after_epoch_test_log(
-        self, epoch, correct_pred, total_pred, phase, metric_report=None
+        self, epoch: int, correct_pred, total_pred, phase, metric_report=None
     ):
         # compute accuracy for every class
         accuracies = {}
@@ -174,13 +174,15 @@ class trainer:
             print(f"Accuracy for class: {classname:5s} is {accuracy:.1f} %")
             accuracies[classname] = accuracy
         # log accuracy per class on ONE graph
-        self.logger.add_scalars(f"class_accuracy/{phase}", accuracies, epoch)  if self.logger else None 
+        self.logger.add_scalars(
+            f"class_accuracy/{phase}", accuracies, epoch
+        ) if self.logger else None
 
         # log the accuracy per class
         for classname, accuracy_res in accuracies.items():
             self.logger.add_scalar(
                 f"class_accuracy/{phase}/{classname}", accuracy_res, epoch
-            )  if self.logger else None 
+            ) if self.logger else None
         if metric_report is not None:
             for classname, metrics in metric_report.items():
                 for metric_name, metric in metrics.items():
@@ -188,4 +190,4 @@ class trainer:
                         f"weighted_class_{metric_name}/{phase}/{classname}",
                         metric.item(),
                         epoch,
-                    )  if self.logger else None 
+                    ) if self.logger else None
