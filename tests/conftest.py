@@ -7,17 +7,21 @@ from hydra import compose, initialize
 from hydra.core.global_hydra import GlobalHydra
 from omegaconf import DictConfig, open_dict
 
-#Specify here the list of experiments that you want to test : 
-experiment_configs_test=[["experiments=base_expe.yaml"],["experiments=debug.yaml"]]
+# Specify here the list of experiments that you want to test :
+experiment_configs_test = [["experiments=base_expe.yaml"], ["experiments=debug.yaml"]]
 
-@pytest.fixture(scope="package",params=experiment_configs_test)
+
+@pytest.fixture(scope="package", params=experiment_configs_test)
 def cfg_train_global(request) -> DictConfig:
     """A pytest fixture for setting up a default Hydra DictConfig for training.
 
     :return: A DictConfig object containing a default Hydra configuration for training.
     """
+
     with initialize(version_base="1.2", config_path="../configs"):
-        cfg = compose(config_name="train.yaml", return_hydra_config=True, overrides=[request.param])
+        cfg = compose(
+            config_name="train.yaml", return_hydra_config=True, overrides=request.param
+        )
 
     return cfg
 
