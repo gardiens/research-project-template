@@ -1,0 +1,27 @@
+# @package _global_
+
+
+defaults:
+  - override /dataset:  cifar.yaml
+  - override /loss : cross_entropy.yaml 
+  - override /model: Lenet.yaml
+  - override /trainer: default.yaml
+
+
+
+
+task_name: Random_name
+
+
+
+
+dataset:
+  batch_size: 64
+  num_workers: 4 
+trainer:
+  n_epochs: 1
+  n_epoch_save: 40
+  learning_rate: 0.01
+
+clearml:
+  project_name: debug 

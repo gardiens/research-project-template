@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults: 
+  -  base_expe.yaml
+
+clearml: null
+
+trainer:
+  bool_save_model: False 
+
+logger: null 
+test: NON 

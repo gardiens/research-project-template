@@ -1,0 +1,26 @@
+
+
+
+defaults:
+  - _self_
+  - dataset: cifar.yaml
+  - loss: hierarchical_loss.yaml
+  - model: LeNet.yaml
+  - trainer: base_trainer.yaml
+  - paths: default.yaml
+  - hydra: default.yaml
+  - logger: tensorboard.yaml
+  - clearml: default.yaml 
+
+  - experiments: base_expe.yaml
+
+task_name: Random_name
+
+seed: 42
+
+
+# set False to skip model training
+train: True
+# evaluate on test set, using best model weights achieved during training
+# lightning chooses best weights based on the metric specified in checkpoint callback
+test: True

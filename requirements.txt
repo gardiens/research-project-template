@@ -1,0 +1,9 @@
+clearml
+scikit-learn
+hydra-core
+pytest
+pre-commit
+matplotlib
+
+numpy==1.26.4
+tqdm
