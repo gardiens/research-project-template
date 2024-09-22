@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://gitlab-student.centralesupelec.fr/alix.chazottes/fmr-2024-segmentation-hierarchique">
-    <img src="images/logo_safe.jpg" alt="Logo" width=600> 
+    <img src="images/logo_safe.jpg" alt="Logo" width=600>
   </a>
 
 <h3 align="center">  Research Project Template </h3>
@@ -20,7 +20,7 @@
      Fast train with hydra and lightning
     <br />
     <a href="https://gitlab-student.centralesupelec.fr/alix.chazottes/fmr-2024-segmentation-hierarchique"><strong>Explore the docs »</strong></a>
-   
+
   </p>
 </div>
 
@@ -40,16 +40,16 @@ The repository is structured as follows. Each point is detailed below.
 └── personal_files <- Personal files, ignored by git (e.g. notes, debugging test scripts, ...)
 ```
 
-This architecture is based on the fact that any research project requires a configuration, possibly decomposed into several sub-configurations 
+This architecture is based on the fact that any research project requires a configuration, possibly decomposed into several sub-configurations
 
 
-# Setup 
+# Setup
 
 ## Virtual environment
 
-For the sake of reproducibility, and to avoid conflicts with other projects, it is recommended to use a virtual environment. 
+For the sake of reproducibility, and to avoid conflicts with other projects, it is recommended to use a virtual environment.
 
-There are several ways to create a virtual environment. A good one is Virtual Env and conda. 
+There are several ways to create a virtual environment. A good one is Virtual Env and conda.
 
 The following commands create a virtual environment named ``./venv/`` and install the requirements.
 
@@ -60,8 +60,8 @@ venv\Scripts\activate.bat  # for windows
 pip install -r requirements.txt
 ```
 
-# Setup the script 
-You just have to follow the script 
+# Setup the script
+You just have to follow the script
 ```sh
 bash first_install.sh
 #python3 -m venv venv
@@ -98,3 +98,12 @@ I advice to use files gitignored (there is a `personal_*` field in the `.gitigno
 ## Disclaimer
 
 I am highly inspired from this awesome [repo](https://github.com/tboulet/research-project-template/tree/main)
+
+
+# Autotyper
+
+It's something I've been working for a long time I found several options:
+
+- Pytype
+- MonkeyType: seems fine if your script is not too slow
+-
