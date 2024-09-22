@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     from src.trainer import Trainer
 
 
-def set_seed(seed):
+def set_seed(seed) -> None:
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
