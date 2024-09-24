@@ -107,3 +107,5 @@ It's something I've been working for a long time I found several options:
 - Pytype
 - MonkeyType: seems fine if your script is not too slow
 -
+
+I will be deleted
