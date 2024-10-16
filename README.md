@@ -87,6 +87,9 @@ clearml-init
 
 # Other tips
 
+## DGX 
+I love DGX, the password is the usual as the centraleSupelec one 
+
 ## Macros
 
 Command line macros are extremely useful to avoid typing the same commands over and over again. This is just a small tip that I like to do, but it can save a lot of time.
@@ -98,7 +101,6 @@ I advice to use files gitignored (there is a `personal_*` field in the `.gitigno
 ## Disclaimer
 
 I am highly inspired from this awesome [repo](https://github.com/tboulet/research-project-template/tree/main)
-
 
 # Autotyper
 
