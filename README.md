@@ -91,6 +91,19 @@ clearml-init
 
 ## DGX 
 I love DGX, the password is the usual as the centraleSupelec one 
+```bash
+clearml-init
+
+```
+
+
+## Use Jupyter On a Slurm Cluster
+If you want to run Jupyter on a computer node ( the one that has usually GPU).
+You should do 
+```bash
+sbatch script/jupyter.batch
+```
+Then go to this [notebook](notebooks/NB_cluster.ipynb) and follow instruction 
 
 ## Macros
 
@@ -111,3 +124,4 @@ It's something I've been working for a long time I found several options:
 - Pytype
 - MonkeyType: seems fine if your script is not too slow
 -
+
