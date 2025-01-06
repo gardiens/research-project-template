@@ -21,12 +21,12 @@
 
 ##SBATCH --partition=prod40
 ##SBATCH --gres=gpu:3g.40gb:1
-##SBATCH --cpus-per-task=4
+##SBATCH --cpus-per-task=8
 
 ##SBATCH --partition=prod80
 ##SBATCH --gres=gpu:A100.80gb:1
 ##SBATCH --ntasks-per-node=1
-##SBATCH --cpus-per-task=8
+##SBATCH --cpus-per-task=16
 ##SBATCH --mem-per-cpu=10G
 ##SBATCH --nodes=1
 
