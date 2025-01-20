@@ -42,9 +42,10 @@
 ## ============== Run your job here ==============
 
 ## Setup
-source PATH_TO_PROJECT/venv/bin/activate
-cd PATH_TO_PROJECT
-#ssh -N -L 8888:dgxa100:8888 dgx
+source ~/mva_geom/mva_geom_24/venv/bin/activate # my own base Python venv, 
+source venv/bin/activate # if you setup yourself a venv in your repo, it should pick it 
+
+cd ~/ #! SPECIFY PATH TO PROJECT HERE 
 
 node=$(hostname -s)
 
