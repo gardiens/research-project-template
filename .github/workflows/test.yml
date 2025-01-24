@@ -16,7 +16,7 @@ jobs:
         os: ["ubuntu-latest"]
         python-version: ["3.8"]
 
-    timeout-minutes: 5
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -26,18 +26,27 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-
+      - name: install torch
+        run : |
+          pip install --pre torch torchvision torchaudio
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
           pip install sh
+          pip install pytest-cov
 
       - name: List dependencies
-        run: |
-          python -m pip list
+        run: python -m pip list
 
-      - name: Run pytest
+      - name: Run tests
         run: |
-          pytest -v
+          FULL_TEST=1 pytest --cov --cov-report=xml
+        shell: bash
+        timeout-minutes: 5
+
+      # - name: Upload coverage
+      #   uses: codecov/codecov-action@v2
+      #   with:
+      #     fail_ci_if_error: false

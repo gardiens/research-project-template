@@ -1,0 +1,23 @@
+image: python:3.8
+
+stages:
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip_cache"
+
+
+test:pytest_lidar:
+  stage: test
+  script:
+    - python -m pip install --upgrade pip
+    - pip install --pre torch torchvision torchaudio
+    - pip install -r requirements.txt
+    - pip install pytest pytest-cov sh
+    - python -m pip list
+    - pytest --cov --cov-report=xml
+  tags:
+    - docker
+  only:
+    - merge_requests # Ensure this runs for merge requests only
+  timeout: 30m
