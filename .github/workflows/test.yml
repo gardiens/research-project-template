@@ -46,7 +46,7 @@ jobs:
         shell: bash
         timeout-minutes: 5
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v2
-        with:
-          fail_ci_if_error: false
+      # - name: Upload coverage
+      #   uses: codecov/codecov-action@v2
+      #   with:
+      #     fail_ci_if_error: false
