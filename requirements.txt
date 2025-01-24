@@ -8,3 +8,4 @@ matplotlib
 numpy
 tqdm
 notebook
+tensorboard
