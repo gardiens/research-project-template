@@ -34,6 +34,7 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
           pip install sh
+          pip install pytest-cov
 
       - name: List dependencies
         run: python -m pip list
