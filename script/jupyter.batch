@@ -44,7 +44,7 @@
 ## Setup
 source ~/mva_geom/mva_geom_24/venv/bin/activate # my own base Python venv, 
 source venv/bin/activate # if you setup yourself a venv in your repo, it should pick it 
-
+# http://dgxa100:8888/ # for connection 
 cd ~/ #! SPECIFY PATH TO PROJECT HERE 
 
 node=$(hostname -s)
