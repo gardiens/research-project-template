@@ -55,14 +55,18 @@ cd $FOLDER_PATH
 
 ## ============== Run your job here ==============
 
-## Setup
+## Setup the python venv
 source ~/mva_geom/mva_geom_24/venv/bin/activate # my own base Python venv, 
 source venv/bin/activate # if you setup yourself a venv in your repo, it should pick it 
-# http://dgxa100:8888/ # for connection 
+
+# By default, we chose the path where the jupyter script was launched, Specify the path otherwise
+# FOLDER_PATH=~/
 cd $FOLDER_PATH
 
-# cd ~/ #! SPECIFY PATH TO PROJECT HERE 
 
+# Run the jupyter Notebook
 node=$(hostname -s)
-
 jupyter-notebook --no-browser  --port 8888 --ip=${node}
+# http://dgxa100:8888/ # for connection
+
+
