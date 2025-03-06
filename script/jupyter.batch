@@ -3,8 +3,8 @@
 ## Here it use the prod20 partition but you can change it to prod10, prod40 or prod80 by commenting/uncommenting the corresponding lines
 
 #SBATCH --job-name=my_job
-#SBATCH --output=logs/slurm_out.txt
-#SBATCH --error=logs/slurm_out.txt
+#SBATCH --output=slurm_out.txt
+#SBATCH --error=slurm_out.txt
 
 ## For partition: either prod10, prod 20, prod 40 or prod80
 #SBATCH --partition=prod10
