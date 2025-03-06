@@ -37,6 +37,20 @@
 ## Walltime limit
 #SBATCH --time=8:00:00
 
+# check if script is started via SLURM or bash
+# if with SLURM: there variable '$SLURM_JOB_ID' will exist
+# `if [ -n $SLURM_JOB_ID ]` checks if $SLURM_JOB_ID is not an empty string
+if [ -n $SLURM  _JOB_ID ];  then
+    # check the original location through scontrol and $SLURM_JOB_ID
+    SCRIPT_PATH=$(scontrol show job $SLURM_JOBID | awk -F= '/Command=/{print $2}')
+else
+    # otherwise: started with bash. Get the real location.
+    SCRIPT_PATH=$(realpath $0)
+fi
+
+FOLDER_PATH=$(dirname "$SCRIPT_PATH")
+
+cd $FOLDER_PATH
 
 
 ## ============== Run your job here ==============
@@ -45,7 +59,9 @@
 source ~/mva_geom/mva_geom_24/venv/bin/activate # my own base Python venv, 
 source venv/bin/activate # if you setup yourself a venv in your repo, it should pick it 
 # http://dgxa100:8888/ # for connection 
-cd ~/ #! SPECIFY PATH TO PROJECT HERE 
+cd $FOLDER_PATH
+
+# cd ~/ #! SPECIFY PATH TO PROJECT HERE 
 
 node=$(hostname -s)
 
