@@ -25,7 +25,10 @@ RUN conda create --name myenv python=3.8 -y
 
 # Move Config setup
 COPY .setup_config/.ssh/ /root/.ssh/
+## specify custom tmux config
 COPY .setup_config/.tmux.conf /root/
+COPY .setup_config/.tmux.conf.local /root/
+# specify custon clearml conf
 COPY .setup_config/clearml.conf /root/
 RUN chmod 600 /root/.ssh/id_rsa
 
