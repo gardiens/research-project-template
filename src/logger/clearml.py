@@ -56,7 +56,8 @@ def connect_hyperparams_summary(
         if key in cfg_copy.keys():
             del cfg_copy[key]"""
 
-    cfg_copy = OmegaConf.masked_copy(cfg, KEYS_TO_LOG)
+    # cfg_copy = OmegaConf.masked_copy(cfg, KEYS_TO_LOG)
+    cfg_copy=cfg # by default we use the whole cfg
     if resolve:
         container = OmegaConf.to_container(
             cfg_copy, resolve=True, throw_on_missing=False
