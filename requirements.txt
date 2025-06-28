@@ -9,3 +9,5 @@ numpy
 tqdm
 notebook
 tensorboard
+ipykernel 
+jupyterlab
