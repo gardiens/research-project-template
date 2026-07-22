@@ -48,7 +48,7 @@ COPY .setup_config/.ssh/ /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
 
 # Set up Oh My Tmux
-RUN git clone --single-branch --branch master https://github.com/gpakosz/.tmux.git ~/tmux_repo/ \
+RUN git clone --single-branch --branch master https://github.com/gardiens/.tmux.git ~/tmux_repo/ \
   && mkdir -p ~/.config/tmux \
   && ln -s -f ~/tmux_repo/.tmux.conf ~/.tmux.conf \
   && cp ~/tmux_repo/.tmux.conf.local ~/.tmux.conf.local
