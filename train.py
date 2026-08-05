@@ -3,12 +3,7 @@ from typing import TYPE_CHECKING, Optional, Tuple
 import hydra
 import torch
 
-from omegaconf import DictConfig, OmegaConf
 
-# Registering the "eval" resolver allows for advanced config
-# interpolation with arithmetic operations:
-# https://omegaconf.readthedocs.io/en/2.3_branch/how_to_guides.html
-OmegaConf.register_new_resolver("eval", eval)
 import random
 
 import numpy as np
@@ -48,7 +43,6 @@ def train(cfg: DictConfig) -> None:
 
 @hydra.main(version_base="1.2", config_path="configs", config_name="train.yaml")
 def main(cfg: DictConfig) -> None:
-    # fetch cleamrl, must be at the beginning or the logging will not be perfect
 
 
     # actual computation
