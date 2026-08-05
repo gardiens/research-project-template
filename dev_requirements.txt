@@ -1,0 +1,6 @@
+pytest
+pre-commit
+matplotlib
+mlflow
+notebook
+jupyterlab
