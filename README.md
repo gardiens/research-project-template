@@ -1,130 +1,132 @@
 
-
-<a name="readme-top"></a>
-<!--
-
-
-
-
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://gitlab-student.centralesupelec.fr/alix.chazottes/fmr-2024-segmentation-hierarchique">
-    <img src="images/logo_safe.jpg" alt="Logo" width=600>
-  </a>
 
-<h3 align="center">  Research Project Template </h3>
-
-  <p align="center">
-     Fast train with hydra and lightning
-    <br />
-    <a href="https://gitlab-student.centralesupelec.fr/alix.chazottes/fmr-2024-segmentation-hierarchique"><strong>Explore the docs »</strong></a>
-
-  </p>
-</div>
+# Pierrick Bournez : Student Template  .
+[![python](https://img.shields.io/badge/-Python_3-blue?logo=python&logoColor=white)](https://www.python.org/)
 
 
-# Repository structure
-The repository is structured as follows. Each point is detailed below.
-```
-├── README.md        <- The top-level README for developers using this project
-├── configs         <- Configuration files for Hydra. The subtree is detailed below
-├── src             <- Source code for use in this project
-├── data            <- Data folder, ignored by git
-├── logs           <- Logs folder, ignored by git (tensorboard?, wandb, CSVs, ...)
-├── venv           <- Virtual environment folder, ignored by git
-├── requirements.txt  <- The requirements file for reproducing the analysis environment
-├── LICENSE        <- License file
-├── train.py         <- Main script to run the code
-└── personal_files <- Personal files, ignored by git (e.g. notes, debugging test scripts, ...)
-```
 
-This architecture is based on the fact that any research project requires a configuration, possibly decomposed into several sub-configurations
+<p align="center">
+  <img width="60%" src="./images/logo_safe.jpg">
+</p>
 
 
-# Setup
+# 📌  Introduction
+This is a template repository for new projects. You should not start from this repo but it may help you when you will use other's people code or if you want to write a codebase. 
 
-## Virtual environment
-
-For the sake of reproducibility, and to avoid conflicts with other projects, it is recommended to use a virtual environment.
-
-There are several ways to create a virtual environment. A good one is Virtual Env and conda.
-
-The following commands create a virtual environment named ``./venv/`` and install the requirements.
+I provide below a template readme . If you are one of my student, I strongly recommend to follow and adapt the template.  
+## 🏗 Installation
+I provided a template to set up a working python/pytorch environments. 
+Look at first_install.sh and run:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate  # for linux
-venv\Scripts\activate.bat  # for windows
-pip install -r requirements.txt
-#pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu121
- #uncomment if you areon DGX
-# pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cu118 
+bash script/first_install.sh
+```
+## Devcontainer
+Usefull only if you have acess to docker. usually available on company clusters or personal laptop.  
 
+
+## Agent and Claude.md 
+It tells Codex or CLaude some guideline when coding. I took the one from torch I think and it works ok-ish
+
+## Pre-commit explanation
+It enables to apply aoperation before some git operations. in this template, it applies ruff and some standard code   check on notebook before every commit. install it with pip install pre-commit. 
+install the hook with pre-commit install 
+
+
+
+
+
+
+
+## To go further : 
+
+A [non-friendly template of code: Lightning Hydra Template](https://github.com/ashleve/lightning-hydra-template/tree/main)
+A config handler: [Hydra](https://hydra.cc/docs/intro/)
+Tmux custom profile ( for linux only ): [Oh my tmux](https://github.com/gpakosz/.tmux)
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+
+<div align="center">
+
+# Project name: what it is  .
+[![python](https://img.shields.io/badge/-Python_3-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Paper](http://img.shields.io/badge/paper-arxiv.1001.2234-B31B1B.svg)](https://arxiv.org/abs/2511.16542)
+[![Conference](http://img.shields.io/badge/AnyConference-year-4b44ce.svg)](https://isprs-annals.copernicus.org/articles/XI-2-2026/217/2026/)
+
+
+<p align="center">
+  <img width="60%" src="./images/logo_safe.jpg">
+</p>
+
+##  📌  Description
+
+
+Description of the project
+
+
+## Project structure: 
+The directory structure of new project looks like this: 
 
 ```
-
-# Setup the script
-You just have to follow the script
-```sh
-bash first_install.sh
-#python3 -m venv venv
-#source venv/bin/activate  # for linux
-#venv\Scripts\activate.bat  # for windows
-#pip install -r requirements.txt
-#pre-commit install
-```
-
-# Configuration system
-Use Hydra , see this [doc](docs/hydra.md) for more detail
-
-# clearml
-I like clearml because I used it previously and u can plug it on top of every usual loggers, in any case you can fall back to tensorboard if needs be. For a first run you have to do and copy paste what they ask you to do  :
-
-```py
-clearml-init
+├── .github                   <- Github Actions workflows
+│
+├── configs                   <- Hydra configs
+│   ├── callbacks                <- Callbacks configs
+├── src
+│   ├── datasets <- Datasets handling.
+│
 
 ```
+## 💻  Environment requirements
+
+This project was tested on `CLUSTERS`.
+
+
+<br>
+
+## 🏗 Installation
+Run the following command 
 
 
 
-
-# Other tips
-
-## DGX 
-I love DGX, the password is the usual as the centraleSupelec one 
 ```bash
-clearml-init
+git clone https://github.com/YourGithubName/your-repo-name
+cd your-repo-name
+ 
+conda create -n myenv python=3.9
+conda activate myenv
 
+bash install.sh
+pip install -r requirements.txt --no-build-isolation
 ```
 
+## 🚀  Usage
 
-## Use Jupyter On a Slurm Cluster
-If you want to run Jupyter on a computer node ( the one that has usually GPU).
-You should do 
+### 📦 Datasets
+
+Default script paths point to:
+```text
+/workspaces/external_datasets/satnerf/
+```
+
+### 🧠 RUN
+Run the script
 ```bash
-sbatch script/jupyter.batch
+
+
+bash run.sh
+python trian.py
 ```
-Then go to this [notebook](notebooks/NB_cluster.ipynb) and follow instruction 
-
-## Macros
-
-Command line macros are extremely useful to avoid typing the same commands over and over again. This is just a small tip that I like to do, but it can save a lot of time.
-## User-personal usefull files
-
-I advice to use files gitignored (there is a `personal_*` field in the `.gitignore` file) to store personal files, such as notes, debugging scripts, etc. It is a good practice to keep the repository clean and organized.
 
 
-## Disclaimer
 
-I am highly inspired from this awesome [repo](https://github.com/tboulet/research-project-template/tree/main)
 
-# Autotyper
 
-It's something I've been working for a long time I found several options:
+## Citing our work
 
-- Pytype
-- MonkeyType: seems fine if your script is not too slow
--
-
+Put your arxiv here;

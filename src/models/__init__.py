@@ -1,2 +1,0 @@
-
-from .lenet import LeNet

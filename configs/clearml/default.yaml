@@ -1,7 +1,0 @@
-
-
-_target_: src.logger.clearml.safe_init_clearml
-project_name:  drone-cloud-point-segmentation
-task_name : ${task_name} #?
-tags : null #${tags} #?
-task_type: training

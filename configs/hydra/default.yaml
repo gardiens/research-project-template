@@ -1,8 +1,14 @@
+# @package _global_
 # https://hydra.cc/docs/configure_hydra/intro/
 
-# enable color logging
-# enable color logging
+# Remove Hydra logging
 
-# output directory, generated dynamically on each run
-run:
-  dir: ${paths.log_dir}/${task_name}/runs/${now:%Y-%m-%d}_${now:%H-%M-%S}
+defaults:
+  - _self_
+  - override /hydra/hydra_logging: disabled
+  - override /hydra/job_logging: disabled
+
+hydra:
+  output_subdir: nulls
+  run:
+    dir: .

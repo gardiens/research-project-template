@@ -1,9 +1,0 @@
-_target_: src.trainer.Trainer
-
-n_epochs: 40
-n_epoch_save: 40 # we save every n epochs the model
-classes: ${dataset.name_classes}
-learning_rate: 0.01
-log_dir_model: "${paths.output_dir}"
-batch_size: ${dataset.batch_size}
-bool_save_model: True

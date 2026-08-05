@@ -11,3 +11,4 @@ notebook
 tensorboard
 ipykernel 
 jupyterlab
+huggingface-hub

@@ -1,8 +1,0 @@
-
-_target_: src.dataset.cifar.BaseDataModule
-
-download_cifar: True 
-batch_size: 64
-num_workers: 48
-nb_classes: 10 
-name_classes:  ${eval:'("bird","deer","dog","cat","horse","frog","truck","automobile","airplane","ship")'}

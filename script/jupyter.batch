@@ -56,7 +56,7 @@ cd $FOLDER_PATH
 ## ============== Run your job here ==============
 
 ## Setup the python venv
-source ~/mva_geom/mva_geom_24/venv/bin/activate # my own base Python venv, 
+
 source venv/bin/activate # if you setup yourself a venv in your repo, it should pick it 
 
 # By default, we chose the path where the jupyter script was launched, Specify the path otherwise

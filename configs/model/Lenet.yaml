@@ -1,5 +1,0 @@
-
-_target_: src.models.LeNet
-
-dropout: 0.2
-nb_classes: ${dataset.nb_classes}

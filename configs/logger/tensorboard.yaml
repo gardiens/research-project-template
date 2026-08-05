@@ -1,4 +1,0 @@
-
-_target_: torch.utils.tensorboard.SummaryWriter
-
-log_dir: "${paths.output_dir}/tensorboard/"
