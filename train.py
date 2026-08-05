@@ -17,7 +17,7 @@ def set_seed(seed) -> None:
     torch.cuda.manual_seed_all(seed)
 
 
-def train(cfg: DictConfig) -> None:
+def train(cfg: "DictConfig") -> None:
     """Trains the model. Can additionally evaluate on a testset, using best weights obtained during
     training.
 
@@ -42,7 +42,7 @@ def train(cfg: DictConfig) -> None:
     print("Hello Put your training loop here.")
 
 @hydra.main(version_base="1.2", config_path="configs", config_name="train.yaml")
-def main(cfg: DictConfig) -> None:
+def main(cfg: "DictConfig") -> None:
 
 
     # actual computation

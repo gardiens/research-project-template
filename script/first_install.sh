@@ -2,7 +2,7 @@
 CUDA_VERSION=11.8
 CUDA_TAG=cu${CUDA_VERSION//./}  # pytorch wheel index uses a dotless tag, e.g. cu126
 
-
+source "$(conda info --base)/etc/profile.d/conda.sh" # init conda 
 
 # Set conda 
 conda install -n base conda-libmamba-solver -y
