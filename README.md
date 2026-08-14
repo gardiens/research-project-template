@@ -123,8 +123,6 @@ I am highly inspired from this awesome [repo](https://github.com/tboulet/researc
 # Autotyper
 
 It's something I've been working for a long time I found several options:
-
-- Pytype
-- MonkeyType: seems fine if your script is not too slow
--
+- MonkeyType: seems fine  but it has been recently archived
+- I think [RightTyper](https://github.com/gardiens/RightTyper) one is maintained and the result looks convincing 
 
