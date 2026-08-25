@@ -14,7 +14,9 @@
 ## 📌 What this is
 
 A minimal template for a research codebase: environment setup, SLURM scripts, pre-commit hooks.
-
+Two short guides go with it: [`docs/start_project.md`](docs/start_project.md) for the first
+weeks (getting a paper's code to run, CUDA, feedback loop) and
+[`docs/end_project.md`](docs/end_project.md) for handing in (code delivery, report).
 
 You are not obliged to start from this repo. But if you are one of my students, I strongly
 recommend following the structure and following the below README template.
@@ -80,6 +82,14 @@ Instructions given to Claude Code or Codex when they edit this repo: think befor
 keep it simple, make surgical changes. Adapted from the PyTorch guidelines; works well
 enough.
 
+### `docs/start_project.md` / `docs/end_project.md` — how to work on the project
+
+These two documents contain guidelines rather than code. `start_project.md` addresses the
+initial phase of a project: reproducing a published codebase, pinning CUDA versions,
+establishing a short feedback loop, tracking experiments, using notebooks and coding agents.
+`end_project.md` addresses the final phase: the expected state of the delivered code and the
+structure of the report. The first is intended to be read at the start of the project, the
+second about one month before the final deadline.
 
 ### `.devcontainer/` — Docker dev environment (optional)
 
@@ -93,20 +103,15 @@ folder in VS Code and choose *Reopen in Container*. Edit the `mounts` entry in
 
 ## 📚 To go further
 
-- [Lightning Hydra Template](https://github.com/ashleve/lightning-hydra-template) — a much
-  larger template. Powerful, but not beginner-friendly.
+- [Lightning Hydra Template](https://github.com/ashleve/lightning-hydra-template) — a much larger template. Powerful, but not beginner-friendly.
 - [Hydra documentation](https://hydra.cc/docs/intro/) — config handling.
 - [old full research project template](https://github.com/gardiens/research-project-template/tree/main/script) -  This is what I did for a student project.
 **Working remotely.** :
 - [SSH config](https://www.ssh.com/academy/ssh/config) — give your machines short names in
   `~/.ssh/config` instead of retyping `user@long.hostname.fr`.
-- [VS Code Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) — editor, terminal and
-  Jupyter kernels all running on the remote machine. This is the default choice; check first
-  whether your cluster allows it on the login node. ( blocked on Jean-Zay)
-- [sshfs](https://github.com/libfuse/sshfs) — mount a remote directory as a local
-  folder, handy for opening figures and logs with local tools. 
-- [Oh my tmux](https://github.com/gpakosz/.tmux) — keep remote sessions alive when your SSH
-  connection drops (Linux/macOS).
+- [VS Code Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) — editor, terminal and Jupyter kernels all running on the remote machine. This is the default choice; check first whether your cluster allows it on the login node. ( blocked on Jean-Zay)
+- [sshfs](https://github.com/libfuse/sshfs) — mount a remote directory as a local folder, handy for opening figures and logs with local tools. 
+- [Oh my tmux](https://github.com/gpakosz/.tmux) — keep remote sessions alive when your SSH connection drops (Linux/macOS).
 
 ---
 ---
