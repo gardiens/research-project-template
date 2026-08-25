@@ -161,6 +161,6 @@ You can draw inspiration from it.
 
 - [ ] The debug config runs end to end.
 - [ ] You looked at a batch of inputs with their labels.
-- [ ] The code is committed and the run logs the hash, the config and the seed.
+- [ ] The code is committed and the run logs the config and the seed.
 - [ ] The job actually uses the GPU.
 - [ ] You know roughly how long it will take, and it fits your budget.
