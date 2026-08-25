@@ -105,7 +105,7 @@ folder in VS Code and choose *Reopen in Container*. Edit the `mounts` entry in
 
 - [Lightning Hydra Template](https://github.com/ashleve/lightning-hydra-template) — a much larger template. Powerful, but not beginner-friendly.
 - [Hydra documentation](https://hydra.cc/docs/intro/) — config handling.
-- [old full research project template](https://github.com/gardiens/research-project-template/tree/main/script) -  This is what I did for a student project.
+- [old full research project template](https://github.com/gardiens/research-project-template/tree/main/) -  This is what I did for a student project.
 **Working remotely.** :
 - [SSH config](https://www.ssh.com/academy/ssh/config) — give your machines short names in
   `~/.ssh/config` instead of retyping `user@long.hostname.fr`.
