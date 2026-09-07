@@ -42,8 +42,13 @@ It needs Python 3.12+ to run (a separate env is fine), and `--no-output-files` l
 
 ### What I actually read
 
-What you did, what you found, what didn't work and why you think so. Please don't fill sections with ChatGPT: I would much rather read two honest pages than ten pages of nothing.
+Your report should explain what you did, what you found, what did not work, and why you think it did not work. Clearly state your hypotheses and the conclusions you draw from your experiments.
 
+Please do not fill sections with generic ChatGPT-generated text. I would much rather read two honest, precise pages than ten pages of vague or meaningless content.
+
+You are responsible for everything you submit. In particular, be very careful with highly technical claims or details that you do not fully understand yourself. If something is included in the report, you should be able to explain and defend it.
+
+I will pay particular attention to this point, and unsupported or fabricated technical details will be taken very seriously.
 ### Results section
 
 A structure a colleague gave me, which I now use for most results sections:
