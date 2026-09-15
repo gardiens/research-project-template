@@ -25,6 +25,17 @@ Everything except visualisation goes through `python train.py args=...`. No `tra
 
 Each line states the config and the checkpoint used to reproduce it, plus roughly how long it takes and on what GPU.
 
+### Results and public repositories
+
+If the repository is private, include a results table indicating, for each experiment, the configuration and checkpoint needed to reproduce it, together with the approximate runtime and hardware used.
+
+If the repository is intended to be public, do not include numerical results, result plots, detailed experimental comparisons, or the conclusions drawn from the experiments. These belong in the report.
+
+The public repository should contain enough information to reproduce the experiments: the available benchmarks, configurations, checkpoints when appropriate, and the corresponding commands. It is fine to describe which experiments were performed, but not their outcomes.
+
+The same applies to sections such as TODO, Roadmap, or What is not done: keep them factual and sufficiently general so that they do not indirectly reveal the experimental conclusions.
+
+
 ### Before pushing the final version
 Run the linter once on the whole repo before pushing the final version:
 `pre-commit run --all-files`. If you want type hints without writing them by hand, [RightTyper](https://github.com/RightTyper/RightTyper) infers them from a run, including tensor shapes:
@@ -35,6 +46,8 @@ python3 -m righttyper --infer-shapes --python-version 3.10 your_script.py [args.
 ```
 
 It needs Python 3.12+ to run (a separate env is fine), and `--no-output-files` lets you preview before it edits your files in place. Read the diff: it sometimes types things you did not want typed.
+
+
 
 ---
 
