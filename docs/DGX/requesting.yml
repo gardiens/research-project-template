@@ -1,0 +1,72 @@
+# Project short name
+# Must be lowercase. No spaces, no special characters. Letters, digits and
+# hyphens only.
+# Example: "galaxy-morphology-2026"
+name: "MMAD-2026"
+
+# Brief description of the project
+# Explain the purpose, scope, and objectives in one or two sentences.
+# Example: "Deep learning for galaxy morphology classification from telescope images"
+description: "RAG for Industrial anomaly detection"
+
+# Email address of the project supervisor
+# Must be a valid institutional or professional email.
+# Example: "jean.martin@centralesupelec.fr"
+supervisor_email: "pierrick.bournez@centralesupelec.fr"
+
+# Full name of the project supervisor
+# Example: "Jean Martin"
+supervisor_name: "Pierrick Bournez"
+
+# Institution and course or laboratory name
+# Example: "CentraleSupélec ST5"
+institution: "CentraleSupélec MICS "
+
+# Requested expiration date for the project
+# Format: YYYY-MM-DD
+# After this date, access will be revoked. Contact admin to extend.
+# Example: "2026-07-31"
+expire_date: "2027-06-01"
+
+# Sensitive or regulated data
+# Indicate whether the project will use personal data, health data,
+# biometric data, defense/security-related data, confidential third-party
+# data, or any dataset subject to legal, contractual, or ethical restrictions.
+# Use one of: "no", "yes", "unsure"
+# If "yes" or "unsure", contact dgx_support and dpo@centralesupelec.fr
+# before uploading any data to the DGX.
+sensitive_data: "no"
+
+# Sensitive data details
+# Required when sensitive_data is "yes" or "unsure".
+# Briefly describe the data category and current validation status.
+# Example: "No personal data; public astronomical survey images only"
+sensitive_data_details: ""
+
+# Project members
+# List all people who need access to this project.
+# Provide the full name and email address of each member.
+#
+# Example:
+#   members:
+#     - {name: "Alice Dupont", email: "alice.dupont@student-cs.fr"}
+#     - {name: "Hector Bar", email: "hector.bar@university.fr"}
+members:
+  - {name: "", email: ""}
+
+# SSH public keys for project access
+# Provide the SSH public keys of all members who need to connect.
+# Each key is found in ~/.ssh/ (typically id_rsa.pub or id_ed25519.pub).
+# Format: starts with "ssh-rsa", "ssh-ed25519", or similar algorithm identifier.
+#
+# Example:
+#   ssh_public_keys:
+#     - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... alice@laptop"
+#     - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAB... hector@desktop"
+ssh_public_keys:
+  - ""
+
+# Additional comments or context
+# Briefly describe why you need this project and any special requirements.
+# Example: "Semester project for ST5 deep learning course, needs 2 GPUs"
+comment: " Semester project for [FILL], needs 1 GPU "
